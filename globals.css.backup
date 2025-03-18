@@ -246,8 +246,8 @@
   @apply text-[12px] leading-[16px] font-semibold;
 }
 
+/* =====  SHADCN OVERRIDES */
 @utility shad-primary-btn {
-  /* =====  SHADCN OVERRIDES */
   @apply bg-green-500! text-white!;
 }
 
