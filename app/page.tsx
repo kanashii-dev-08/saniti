@@ -1,4 +1,5 @@
 import PatientForm from "@/components/forms/PatientForm";
+import { ToggleTheme } from "@/components/toggle-theme";
 import Image from "next/image";
 
 export default function Home() {
@@ -11,9 +12,9 @@ export default function Home() {
 						height={1000}
 						width={1000}
 						alt="patient"
-						className="mb-12 h-10 w-fit dark:invert"
+						className="mb-12 h-10 w-fit"
 					/>
-
+					<ToggleTheme />
 					<PatientForm />
 				</div>
 			</section>
