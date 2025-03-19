@@ -343,7 +343,7 @@
   @apply overflow-hidden! border-transparent! w-full! placeholder:text-dark-600!  h-11! text-14-medium! rounded-md! px-3! outline-hidden!;
 }
 
-/* ========================================== TAILWIND STYLES */
+/* ===== TAILWIND STYLES ===== */
 @layer base {
   /* Remove scrollbar */
   .remove-scrollbar::-webkit-scrollbar {

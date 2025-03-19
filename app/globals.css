@@ -64,27 +64,7 @@
 	}
 }
 
-@utility container {
-	margin-inline: auto;
-	padding-inline: 2rem;
-	@media (width >= --theme(--breakpoint-sm)) {
-		max-width: none;
-	}
-	@media (width >= 1400px) {
-		max-width: 1400px;
-	}
-}
-
-@layer base {
-	*,
-	::after,
-	::before,
-	::backdrop,
-	::file-selector-button {
-		border-color: var(--color-gray-200, currentColor);
-	}
-}
-
+/* ===== TAILWIND STYLES ===== */
 @layer base {
 	/* Remove scrollbar */
 	.remove-scrollbar::-webkit-scrollbar {
@@ -108,7 +88,7 @@
 	}
 }
 
-/* ===== UTILITIES */
+/* ===== UTILITIES ===== */
 @utility sidebar {
 	@apply w-full max-w-72 flex-col overflow-auto bg-neutral-800 px-7 py-10;
 }
@@ -129,8 +109,100 @@
 	@apply bg-neutral-900 bg-cover bg-no-repeat;
 }
 
-/* ===== TYPOGRAPHY  ===== */
+@utility header {
+	@apply text-[32px] font-bold md:text-[36px] md:font-bold;
+}
+
+@utility sub-header {
+	@apply text-[18px] font-bold md:text-[24px] md:font-bold;
+}
+
+@utility container {
+	@apply relative flex-1 overflow-y-auto px-[5%];
+}
+
+@utility sub-container {
+	@apply mx-auto flex size-full flex-col py-10;
+}
+
+@utility side-img {
+	@apply hidden h-full object-cover md:block;
+}
+
+@utility copyright {
+	@apply text-[14px] font-normal justify-items-end text-center text-dark-600 xl:text-left;
+}
+
+/* ==== SUCCESS ==== */
+@utility success-img {
+	@apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
+}
+
+@utility request-details {
+	@apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
+}
+
+/* ===== ADMIN ===== */
+@utility admin-header {
+	@apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
+}
+
+@utility admin-main {
+	@apply flex flex-col items-center space-y-6 px-[5%] pb-12 xl:space-y-12 xl:px-12;
+}
+
+@utility admin-stat {
+	@apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
+}
+
+/* ==== FORM ==== */
+@utility radio-group {
+	@apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;
+}
+
+@utility checkbox-label {
+	@apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+}
+
+/* ==== File Upload ==== */
+@utility file-upload {
+	@apply text-[12px] font-normal flex cursor-pointer  flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
+}
+
+@utility file-upload_label {
+	@apply flex flex-col justify-center gap-2 text-center text-dark-600;
+}
+
+/* ==== Stat Card ==== */
+@utility stat-card {
+	@apply flex flex-1 flex-col gap-6 rounded-2xl bg-cover p-6 shadow-lg;
+}
+
+/* ==== Status Badge ==== */
+@utility status-badge {
+	@apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
+}
+
+/* ==== Data Table ==== */
+@utility data-table {
+	@apply z-10 w-full overflow-hidden rounded-lg border border-dark-400 shadow-lg;
+}
+
+@utility table-actions {
+	@apply flex w-full items-center justify-between space-x-2 p-4;
+}
+
+/* ===== ALIGNMENTS ===== */
+@utility flex-center {
+	@apply flex items-center justify-center;
+}
+
+@utility flex-between {
+	@apply flex items-center justify-between;
+}
+
 @utility text-36-bold {
+	/* ===== TYPOGRAPHY */
 	@apply text-[36px] leading-[40px] font-bold;
 }
 
@@ -168,4 +240,174 @@
 
 @utility text-12-semibold {
 	@apply text-[12px] leading-[16px] font-semibold;
+}
+
+/* ===== SHADCN OVERRIDES ===== */
+@utility shad-primary-btn {
+	@apply bg-green-500! text-white!;
+}
+
+@utility shad-danger-btn {
+	@apply bg-red-700! text-white!;
+}
+
+@utility shad-gray-btn {
+	@apply border! border-dark-500! cursor-pointer! bg-dark-400! text-white!;
+}
+
+@utility shad-input-label {
+	@apply text-14-medium! text-dark-700!;
+}
+
+@utility shad-input {
+	@apply bg-dark-400! placeholder:text-dark-600! border-dark-500! h-11! focus-visible:ring-0! focus-visible:ring-offset-0!;
+}
+
+@utility shad-input-icon {
+	@apply bg-dark-400! placeholder:text-dark-600! border-dark-500! h-11! focus-visible:ring-0! focus-visible:ring-offset-0!;
+}
+
+@utility shad-textArea {
+	@apply bg-dark-400! placeholder:text-dark-600! border-dark-500! focus-visible:ring-0! focus-visible:ring-offset-0!;
+}
+
+@utility shad-combobox-item {
+	@apply data-[disabled=true]:pointer-events-none! data-[disabled=true]:opacity-50!;
+}
+
+@utility shad-combobox-trigger {
+	@apply h-11!;
+}
+
+@utility shad-select-trigger {
+	@apply bg-dark-400!  placeholder:text-dark-600! border-dark-500! h-11! focus:ring-0! focus:ring-offset-0!;
+}
+
+@utility shad-select-content {
+	@apply bg-dark-400! border-dark-500!;
+}
+
+@utility shad-dialog {
+	@apply bg-dark-400! border-dark-500!;
+
+	& button {
+		@apply focus:ring-0! focus:ring-offset-0! focus-visible:border-none! focus-visible:outline-hidden! focus-visible:ring-transparent! focus-visible:ring-offset-0!;
+	}
+}
+
+@utility shad-error {
+	@apply text-red-400!;
+}
+
+@utility shad-table {
+	@apply rounded-lg! overflow-hidden!;
+}
+
+@utility shad-table-row-header {
+	@apply border-b! border-dark-400! text-light-200! hover:bg-transparent!;
+}
+
+@utility shad-table-row {
+	@apply border-b! border-dark-400! text-light-200!;
+}
+
+@utility shad-otp {
+	@apply w-full! flex! justify-between!;
+}
+
+@utility shad-otp-slot {
+	@apply text-36-bold! justify-center! flex! border! border-dark-500! rounded-lg! size-16! gap-4!;
+}
+
+@utility shad-alert-dialog {
+	@apply space-y-5! bg-dark-400! border-dark-500! outline-hidden!;
+}
+
+@utility shad-sheet-content {
+	& button {
+		@apply top-2! focus:ring-0! focus:ring-offset-0! focus-visible:border-none! focus-visible:outline-hidden! focus-visible:ring-transparent! focus-visible:ring-offset-0!;
+	}
+}
+
+/* ===== REACT PHONE NUMBER INPUT OVERRIDES ===== */
+@utility input-phone {
+	@apply mt-2! h-11! rounded-md! px-3! text-sm! border! bg-dark-400! placeholder:text-dark-600! border-dark-500!;
+}
+
+@utility date-picker {
+	/* ===== REACT DATE PICKER OVERRIDES ===== */
+	@apply overflow-hidden! border-transparent! w-full! placeholder:text-dark-600!  h-11! text-14-medium! rounded-md! px-3! outline-hidden!;
+}
+
+/* ===== REACT-DATEPICKER OVERRIDES ===== */
+.react-datepicker-wrapper.date-picker {
+	display: flex;
+	align-items: center;
+}
+
+.react-datepicker,
+.react-datepicker__time,
+.react-datepicker__header,
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker-time__header {
+	background-color: #1a1d21 !important;
+	border-color: #363a3d !important;
+	color: #abb8c4 !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker-time__header {
+	color: #ffffff !important;
+}
+
+.react-datepicker__triangle {
+	fill: #1a1d21 !important;
+	color: #1a1d21 !important;
+	stroke: #1a1d21 !important;
+}
+
+.react-datepicker__time-list-item:hover {
+	background-color: #363a3d !important;
+}
+
+.react-datepicker__input-container input {
+	background-color: #1a1d21 !important;
+	width: 100%;
+	outline: none;
+}
+
+.react-datepicker__day--selected {
+	background-color: #24ae7c !important;
+	color: #ffffff !important;
+	border-radius: 4px;
+}
+
+.react-datepicker__time-list-item--selected {
+	background-color: #24ae7c !important;
+}
+
+.react-datepicker__time-container {
+	border-left: 1px solid #363a3d !important;
+}
+
+.react-datepicker__time-list-item {
+	display: flex !important;
+	align-items: center !important;
+}
+
+/* ===== REACT PHONE NUMBER INPUT OVERRIDES ===== */
+.PhoneInputInput,
+.PhoneInputCountrySelect {
+	outline: none;
+	margin-left: 4px;
+	background: #1a1d21;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.PhoneInputInput::placeholder {
+	color: #1a1d21;
 }
