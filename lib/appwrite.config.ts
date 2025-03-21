@@ -1,4 +1,4 @@
-import * as sdk from "node-appwrite";
+import { Client, Databases, Messaging, Users, Storage } from "node-appwrite";
 
 export const appwriteConfig = {
 	endpointUrl: process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!,
@@ -12,12 +12,24 @@ export const appwriteConfig = {
 	secretKey: process.env.NEXT_APPWRITE_KEY!,
 };
 
-const client = new sdk.Client()
-	.setEndpoint(appwriteConfig.endpointUrl)
-	.setProject(appwriteConfig.projectId)
-	.setKey(appwriteConfig.secretKey);
+export async function createAdminClient() {
+	const client = new Client()
+		.setEndpoint("endpointUrl")
+		.setProject("projectId")
+		.setKey("secretKey");
 
-export const databases = new sdk.Databases(client);
-export const storage = new sdk.Storage(client);
-export const messaging = new sdk.Messaging(client);
-export const users = new sdk.Users(client);
+	return {
+		get databases() {
+			return new Databases(client);
+		},
+		get storage() {
+			return new Storage(client);
+		},
+		get messaging() {
+			return new Messaging(client);
+		},
+		get users() {
+			return new Users(client);
+		},
+	};
+}

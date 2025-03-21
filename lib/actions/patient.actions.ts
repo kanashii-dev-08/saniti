@@ -1,8 +1,11 @@
+"use server";
+
 import { ID, Query } from "node-appwrite";
-import { appwriteConfig, createAdminClient, users } from "../appwrite.config";
+import { appwriteConfig, createAdminClient } from "../appwrite.config";
 import { parseStringify } from "../utils";
 
 export const createUser = async (user: CreateUserParams) => {
+	const { users } = await createAdminClient();
 	try {
 		const newUser = await users.create(
 			ID.unique(),
@@ -12,7 +15,6 @@ export const createUser = async (user: CreateUserParams) => {
 			user.name
 		);
 		console.log({ newUser });
-
 		return parseStringify(newUser);
 	} catch (error: any) {
 		if (error && error?.code === 409) {
