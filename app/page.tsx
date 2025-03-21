@@ -1,4 +1,5 @@
 import PatientForm from "@/components/forms/PatientForm";
+import { ToggleTheme } from "@/components/toggle-theme";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,13 +9,17 @@ export default function Home() {
 			{/* TODO: OTP Verification | PasskeyModal */}
 			<section className="remove-scrollbar container my-auto">
 				<div className="sub-container max-w-[496px]">
-					<Image
-						src="/assets/icons/logo-full.svg"
-						height={1000}
-						width={1000}
-						alt="patient"
-						className="mb-12 h-10 w-fit"
-					/>
+					<div className="flex justify-between">
+						<Image
+							src="/assets/icons/logo-full.svg"
+							height={1000}
+							width={1000}
+							alt="patient"
+							className="mb-12 h-10 w-fit"
+						/>
+						<ToggleTheme />
+					</div>
+
 					<PatientForm />
 					<div className="text-[14px] font-normal mt-20 flex justify-between">
 						<p className="justify-items-center text-dark-600 xl:text-left">
