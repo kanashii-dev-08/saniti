@@ -13,10 +13,11 @@ export const appwriteConfig = {
 };
 
 export async function createAdminClient() {
+	const { endpointUrl, projectId, secretKey } = appwriteConfig;
 	const client = new Client()
-		.setEndpoint("endpointUrl")
-		.setProject("projectId")
-		.setKey("secretKey");
+		.setEndpoint(endpointUrl!)
+		.setProject(projectId!)
+		.setKey(secretKey!);
 
 	return {
 		get databases() {
